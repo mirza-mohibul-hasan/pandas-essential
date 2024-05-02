@@ -1,21 +1,3 @@
-# Pandas DataFrame Operations
-
-## Introduction
-
-This repository contains Python code snippets demonstrating various operations and functionalities of Pandas DataFrame, a powerful tool for data manipulation and analysis in Python.
-
-## Contents
-
-- **01**: Creating DataFrames
-- **02**: Reading Data from DataFrames
-- **03**: Updating DataFrames
-- **04**: Deleting DataFrames and Outputting Data
-
-## Detailed Explanation
-
-### 01: Creating DataFrames
-
-```python
 # First need to import Pandas
 import pandas as pd
 
@@ -27,11 +9,7 @@ df = pd.read_csv("telco.csv")
 # 1.2 Create DataFrame from dictionary
 tempdict = {'col1': [1, 2, 3], 'col2': [4, 5, 6], 'col3': [7, 8, 9]}
 dictdf = pd.DataFrame.from_dict(tempdict)
-```
 
-### 02: Reading Data from DataFrames
-
-```python
 # 2.1.0 Show top 5 rows (default)
 top5 = df.head()
 
@@ -75,7 +53,8 @@ churn_unique = df.Churn.unique()
 int_plan_no = df[df['International plan'] == 'No']
 
 # 2.5.2 Filtering rows with multiple conditions
-int_plan_no_churn_true = df[(df['International plan'] == 'No') & (df['Churn'] == True)]
+int_plan_no_churn_true = df[(
+    df['International plan'] == 'No') & (df['Churn'] == True)]
 
 # 2.6 Indexing with iloc -> integer-based indexing
 
@@ -91,14 +70,11 @@ index_range_data = df.iloc[14:18]
 # 2.7 Indexing with loc -> label-based indexing
 
 # 2.7.1 Data from 'State' row where index is 'OH'
+
 state = df.copy()
 state.set_index('State', inplace=True)
 index_data_loc = state.loc['OH']
-```
 
-### 3. Update DataFrames
-
-```python
 # 3.1 Dropping rows with missing values
 df.dropna(inplace=True)
 
@@ -113,11 +89,8 @@ df['New Column'] = 100
 
 # 3.5 Updating a Single Value
 df.iloc[0, -1] = 10
-```
 
-# 4. Delete/Output DataFrames
 
-```python
 # 4.1 Output to CSV
 df.to_csv('output.csv')
 
@@ -126,28 +99,3 @@ telco_json = df.to_json()
 
 # 4.3 Delete DataFrame
 del df
-```
-
-**Contributing Guidelines:**
-
-1. **Fork the Repository:** Fork the repository to your own GitHub account.
-
-2. **Clone the Repository:** Clone the repository to your local machine using the `git clone` command.
-
-3. **Create a Branch:** Create a new branch for your contributions using `git checkout -b feature/your-feature-name`.
-
-4. **Make Changes:** Make your desired changes to the codebase, following the coding conventions and guidelines.
-
-5. **Commit Changes:** Commit your changes with a descriptive commit message using `git commit -m "Your message here"`.
-
-6. **Push Changes:** Push your changes to your forked repository on GitHub with `git push origin feature/your-feature-name`.
-
-7. **Create Pull Request:** Go to the original repository on GitHub, switch to the branch you created, and create a pull request. Provide a clear description of your changes.
-
-8. **Review:** Your pull request will be reviewed by the maintainers. Make any requested changes if necessary.
-
-9. **Merge:** Once approved, your pull request will be merged into the main branch.
-
-10. **Stay Updated:** Keep your forked repository in sync with the original repository by regularly pulling changes from the main branch.
-
-Thank you for your contributions!
